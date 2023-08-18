@@ -154,8 +154,6 @@ def manager_thread() -> None:
   if os.getenv("NOBOARD") is not None:
     ignore.append("pandad")
 
-  if not params.get_bool("dp_logging"):
-    ignore += ["logcatd", "proclogd", "loggerd"]
   ignore += [x for x in os.getenv("BLOCK", "").split(",") if len(x) > 0]
 
   if not params.get_bool("dp_mapd") or params.get_bool("dp_no_gps_ctrl"):
